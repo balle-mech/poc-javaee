@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/postgresql-42.7.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mockito-all-2.0.2-beta.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/junit-platform-console-standalone-1.9.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
