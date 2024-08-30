@@ -1,0 +1,38 @@
+name: Java CI with JUnit
+
+on:
+  push:
+    
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+
+    # アプリに合わせたJDKバージョンを指定
+    - name: Set up JDK 12
+      uses: actions/setup-java@v3
+      with:
+        java-version: '12'
+        distribution: 'temurin'
+
+    # WildFlyのセットアップ
+    - name: Set up WildFly
+      uses: fjogeleit/wildfly-setup-action@v1
+      with:
+        version: '23.0.0.Final'
+
+    # アプリケーションのデプロイ
+    - name: Deploy to WildFly
+      run: |
+        ${WILDFLY_HOME}/bin/jboss-cli.sh --connect --command="deploy target/your-app.war"  # デプロイするWARファイルを指定
+
+    # テストの実行
+    - name: Run tests
+      run: |
+        # テストの実行コマンドを指定
+        java -jar ./src/main/webapp/WEB-INF/lib/junit-platform-console-standalone-1.9.3.jar --class-path target/classes --scan-class-path
