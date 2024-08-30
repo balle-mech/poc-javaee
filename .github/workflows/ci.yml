@@ -15,6 +15,4 @@ jobs:
 
     # テストの実行
     - name: Run tests
-      run: |
-        # テストの実行コマンドを指定
-        java -jar ./src/main/webapp/WEB-INF/lib/junit-platform-console-standalone-1.9.3.jar --class-path target/classes --scan-class-path
+      run: java -jar junit-platform-console-standalone-1.9.3.jar --class-path ./src/main/java --select-class=backingbeans.EmpBeanTest --details=tree
