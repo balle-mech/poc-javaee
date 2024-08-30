@@ -17,6 +17,10 @@ jobs:
     - name: Download JUnit Platform Console
       run: curl -L -o junit-platform-console-standalone-1.9.3.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.9.3/junit-platform-console-standalone-1.9.3.jar
 
+    # コンパイル
+    - name: Compile Java sources
+      run: javac -d ./out ./src/main/java/backingbeans/EmpBeanTest.java
+
     # テストの実行
     - name: Run tests
       run: java -jar junit-platform-console-standalone-1.9.3.jar --class-path ./src/main/java --select-class=backingbeans.EmpBeanTest --details=tree
