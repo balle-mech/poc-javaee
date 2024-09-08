@@ -11,7 +11,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/h2-2.3.232.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/postgresql-42.7.4.jar"/>
-	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/lib/mockito-all-2.0.2-beta.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/junit-platform-console-standalone-1.9.3.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javaee-api-8.0.jar"/>
