@@ -24,6 +24,11 @@ class MoneyTest {
 	}
 
 	@Test
+	void ドルとFrancの価値が等しくない() {
+		assertFalse(new Franc(5).equals(new Dollar(5)));
+	}
+
+	@Test
 	void Franc通貨の掛け算() {
 		// 前準備
 		Franc five = new Franc(5);
