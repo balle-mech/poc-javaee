@@ -25,7 +25,7 @@ public class EmpBeanTest {
 	public void 前準備() {
 		// @InjectMockが付いているオブジェクトのフィールドに
 		// @Mockが付与されたモックを注入する。
-		MockitoAnnotations.initMocks(this); // Mockitoのアノテーションを初期化
+		MockitoAnnotations.openMocks(this); // Mockitoのアノテーションを初期化
 		// モック daoのfindAllの振る舞いを変更。
 		when(empDaoMock.findAll()).thenReturn(
 				Arrays.asList(
