@@ -1,0 +1,29 @@
+name: Java CI with JUnit
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+
+    # JARファイルをダウンロードするステップ
+    - name: Download JUnit Platform Console
+      run: curl -L -o junit-platform-console-standalone-1.9.3.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.9.3/junit-platform-console-standalone-1.9.3.jar
+
+    - name: Javaファイルのコンパイル
+      run: javac -cp ".:src/main/webapp/WEB-INF/lib/*:src/main/java" src/main/java/**/*.java
+
+    - name: JUnitテスト実行
+      run: |
+        java -jar ./src/main/webapp/WEB-INF/lib/junit-platform-console-standalone-1.9.3.jar \
+          --class-path "./src/main/java" \
+          --scan-class-path "./src/main/java" \
+          --details verbose
+      shell: bash
