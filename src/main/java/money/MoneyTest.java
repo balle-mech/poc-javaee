@@ -9,32 +9,32 @@ class MoneyTest {
 	@Test
 	void ドル通貨の掛け算() {
 		// 前準備
-		Dollar five = new Dollar(5);
+		Money five = Money.dollar(5);
 		// 実行 & 検証
-		assertEquals(new Dollar(10), five.times(2));
-		assertEquals(new Dollar(15), five.times(3));
-	}
-
-	@Test
-	void 通貨の値が等しければTureを返す() {
-		assertTrue(new Dollar(5).equals(new Dollar(5)));
-		assertFalse(new Dollar(5).equals(new Dollar(6)));
-		assertTrue(new Franc(5).equals(new Franc(5)));
-		assertFalse(new Franc(5).equals(new Franc(6)));
-	}
-
-	@Test
-	void ドルとFrancの価値が等しくない() {
-		assertFalse(new Franc(5).equals(new Dollar(5)));
+		assertEquals(Money.dollar(10), five.times(2));
+		assertEquals(Money.dollar(15), five.times(3));
 	}
 
 	@Test
 	void Franc通貨の掛け算() {
 		// 前準備
-		Franc five = new Franc(5);
+		Money five = Money.franc(5);
 		// 実行 & 検証
-		assertEquals(new Franc(10), five.times(2));
-		assertEquals(new Franc(15), five.times(3));
+		assertEquals(Money.franc(10), five.times(2));
+		assertEquals(Money.franc(15), five.times(3));
+	}
+
+	@Test
+	void 通貨の値が等しければTureを返す() {
+		assertTrue(Money.dollar(5).equals(Money.dollar(5)));
+		assertFalse(Money.dollar(5).equals(Money.dollar(6)));
+		assertTrue(Money.franc(5).equals(Money.franc(5)));
+		assertFalse(Money.franc(5).equals(Money.franc(6)));
+	}
+
+	@Test
+	void ドルとFrancの価値が等しくない() {
+		assertFalse(Money.franc(5).equals(Money.dollar(5)));
 	}
 
 }
