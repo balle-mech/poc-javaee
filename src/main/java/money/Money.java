@@ -1,21 +1,34 @@
 package money;
 
-abstract public class Money {
+abstract class Money {
+	// フィールド
 	protected int amount;
-	abstract Money times(int multiplier);
+	protected String currency;
+
+	// コンストラクタ
+	Money(int amount, String currency) {
+		this.amount = amount;
+		this.currency = currency;
+	}
+
+	// メソッドが同じになったので、親クラスに移動
+	String currency() {
+		return currency;
+	}
+
 	public boolean equals(Object object) {
 		Money money = (Money) object;
 		return this.amount == money.amount && this.getClass().equals(money.getClass());
 	}
 
 	// Factory Method
-	// 通貨の種類に依存しないため、Moneyクラスに実装
+	// テストコードの変更箇所を減らすため、DollarとFrancのインスタンス生成を行う
 	static Money dollar(int amount) {
-		return new Dollar(amount);
+		return new Dollar(amount, "USD");
 	}
 
 	static Money franc(int amount) {
-		return new Franc(amount);
+		return new Franc(amount, "CHF");
 	}
 
 }
