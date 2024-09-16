@@ -14,7 +14,7 @@ class Money {
 	// メソッド
 	// abstract Money times(int multiplier);
 	Money times(int multiplier) {
-		return null;
+		return new Money(amount * multiplier, currency);
 	}
 
 	// メソッドが同じになったので、親クラスに移動
