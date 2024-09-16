@@ -1,6 +1,6 @@
 package money;
 
-abstract class Money {
+class Money {
 	// フィールド
 	protected int amount;
 	protected String currency;
@@ -11,14 +11,24 @@ abstract class Money {
 		this.currency = currency;
 	}
 
+	// メソッド
+	// abstract Money times(int multiplier);
+	Money times(int multiplier) {
+		return null;
+	}
+
 	// メソッドが同じになったので、親クラスに移動
 	String currency() {
 		return currency;
 	}
 
 	public boolean equals(Object object) {
-		Money money = (Money) object;
-		return this.amount == money.amount && this.getClass().equals(money.getClass());
+		Money money = (Money) object; // キャスト
+		return this.amount == money.amount &&	currency().equals(money.currency());
+	}
+
+	public String toString() {
+		return amount + " " + currency;
 	}
 
 	// Factory Method

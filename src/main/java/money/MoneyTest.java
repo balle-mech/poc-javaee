@@ -33,6 +33,11 @@ class MoneyTest {
 	}
 
 	@Test
+	void 通貨の種類が等しければクラスが違ってもTrueを返す() {
+		assertTrue(new Money(5, "CHF").equals(new Franc(5, "CHF")));
+	}
+
+	@Test
 	void ドルとFrancの価値が等しくない() {
 		assertFalse(Money.franc(5).equals(Money.dollar(5)));
 	}
