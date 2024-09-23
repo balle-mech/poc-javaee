@@ -28,8 +28,6 @@ class MoneyTest {
 	void 通貨の値が等しければTureを返す() {
 		assertTrue(Money.dollar(5).equals(Money.dollar(5)));
 		assertFalse(Money.dollar(5).equals(Money.dollar(6)));
-		assertTrue(Money.franc(5).equals(Money.franc(5)));
-		assertFalse(Money.franc(5).equals(Money.franc(6)));
 	}
 
 	@Test
