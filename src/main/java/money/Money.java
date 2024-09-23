@@ -1,5 +1,5 @@
 package money;
-class Money {
+class Money implements Expression {
 	// フィールド
 	protected int amount;
 	protected String currency;
@@ -14,8 +14,12 @@ class Money {
 	}
 
 	// メソッド
+	Expression plus(Money addMoney) {
+		return new Money(addMoney.amount + amount, currency);
+	}
+
 	// abstract Money times(int multiplier);
-	Money times(int multiplier) {
+	public Money times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}
 
@@ -42,5 +46,6 @@ class Money {
 	static Money franc(int amount) {
 		return new Money(amount, "CHF");
 	}
+
 
 }

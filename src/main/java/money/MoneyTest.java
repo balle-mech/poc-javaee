@@ -32,4 +32,17 @@ class MoneyTest {
 		assertEquals("CHF", Money.franc(1).currency());
 	}
 
+	@Test
+	public void 足し算() {
+		// 前準備
+		Money five = Money.dollar(5);
+		// 実行
+		Expression sum = five.plus(five);
+		Bank bank = new Bank();
+		// reducedは為替レートを考慮した結果
+		Money reduced = bank.reduce(sum, "USD");
+		// 検証
+		assertEquals(Money.dollar(10), reduced);
+	}
+
 }
