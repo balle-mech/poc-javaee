@@ -1,5 +1,4 @@
 package money;
-
 class Money {
 	// フィールド
 	protected int amount;
@@ -9,6 +8,9 @@ class Money {
 	Money(int amount, String currency) {
 		this.amount = amount;
 		this.currency = currency;
+	}
+
+	public Money() {
 	}
 
 	// メソッド
@@ -34,11 +36,11 @@ class Money {
 	// Factory Method
 	// テストコードの変更箇所を減らすため、DollarとFrancのインスタンス生成を行う
 	static Money dollar(int amount) {
-		return new Dollar(amount, "USD");
+		return new Money(amount, "USD");
 	}
 
 	static Money franc(int amount) {
-		return new Franc(amount, "CHF");
+		return new Money(amount, "CHF");
 	}
 
 }
